@@ -51,7 +51,7 @@ const deleteMovie = (req, res, next) => {
   Movie.findById(req.params.movieId)
     .then((movie) => {
       if (!movie) {
-        return next(new NotFoundError('Страница по указанному маршруту не найдена.'));
+        return next(new NotFoundError('Фильм с указанным id не найден.'));
       }
       if (!movie.owner.equals(req.user._id)) {
         return next(new ForbiddenError('Попытка удалить фильм другого пользователя.'));

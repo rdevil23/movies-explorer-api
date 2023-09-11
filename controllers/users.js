@@ -12,7 +12,7 @@ const getUserInfo = (req, res, next) => {
   User.findById(req.user._id)
     .then((user) => {
       if (!user) {
-        return next(new NotFoundError('Страница по указанному маршруту не найдена.'));
+        return next(new NotFoundError('Пользователь по указанному id не найден.'));
       }
       return res.status(OK).send(user);
     })
@@ -25,7 +25,7 @@ const editUserData = (req, res, next) => {
   User.findByIdAndUpdate(req.user._id, { name, email }, { new: true, runValidators: true })
     .then((user) => {
       if (!user) {
-        return next(new NotFoundError('Страница по указанному маршруту не найдена.'));
+        return next(new NotFoundError('Пользователь по указанному id не найден.'));
       }
       return res.status(OK).send(user);
     })
