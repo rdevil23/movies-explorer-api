@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 const { errors } = require('celebrate');
 const cors = require('cors');
 const helmet = require('helmet');
-const limiter = require('../middlewares/rateLimiter');
+// const limiter = require('../middlewares/rateLimiter');
 
 const router = require('../routes');
 const errorHandler = require('../middlewares/errorHandler');
@@ -31,7 +31,7 @@ app.use(
   }) // eslint-disable-line
 );
 app.use(helmet());
-app.use(limiter);
+// app.use(limiter);
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
