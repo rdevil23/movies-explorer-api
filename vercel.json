@@ -2,7 +2,7 @@
   "version": 2,
   "builds": [
     {
-      "src": "./api/index.js",
+      "src": "./index.js",
       "use": "@vercel/node"
     }
   ],
@@ -12,7 +12,7 @@
       "dest": "./index.js",
       "methods": ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"],
       "headers": {
-        "Access-Control-Allow-Origin": "*"
+        "Access-Control-Allow-Origin": "https://movies-explorer-frontend-rouge.vercel.app"
       }
     }
   ]
