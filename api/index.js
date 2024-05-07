@@ -4,11 +4,11 @@ const mongoose = require('mongoose');
 const { errors } = require('celebrate');
 const cors = require('cors');
 const helmet = require('helmet');
-const limiter = require('./middlewares/rateLimiter');
+const limiter = require('../middlewares/rateLimiter');
 
-const router = require('./routes');
-const errorHandler = require('./middlewares/errorHandler');
-const { requestLogger, errorLogger } = require('./middlewares/logger');
+const router = require('../routes');
+const errorHandler = require('../middlewares/errorHandler');
+const { requestLogger, errorLogger } = require('../middlewares/logger');
 
 const { PORT = 3000, MONGODB_URL = 'mongodb://127.0.0.1:27017/bitfilmsdb' } = process.env;
 
@@ -38,3 +38,5 @@ mongoose
 app.listen(PORT, () => {
   console.log(`App started on port: ${PORT}`);
 });
+
+module.exports = app;
