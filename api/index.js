@@ -13,7 +13,23 @@ const { requestLogger, errorLogger } = require('../middlewares/logger');
 const { PORT = 3000, MONGODB_URL = 'mongodb://127.0.0.1:27017/bitfilmsdb' } = process.env;
 
 const app = express();
-app.use(cors());
+app.use(
+  cors({
+    origin: 'https://movies-explorer-frontend-rouge.vercel.app/',
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'HEAD', 'OPTIONS'],
+    allowedHeaders: [
+      'Content-Type',
+      'Origin',
+      'X-Requested-With',
+      'Accept',
+      'x-client-key',
+      'x-client-token',
+      'x-client-secret',
+      'Authorization',
+    ],
+    credentials: true,
+  }) // eslint-disable-line
+);
 app.use(helmet());
 app.use(limiter);
 
