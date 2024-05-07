@@ -15,7 +15,7 @@ const { PORT = 3000, MONGODB_URL = 'mongodb://127.0.0.1:27017/bitfilmsdb' } = pr
 const app = express();
 app.use(
   cors({
-    origin: 'https://movies-explorer-frontend-rouge.vercel.app/',
+    origin: 'https://movies-explorer-frontend-rouge.vercel.app',
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'HEAD', 'OPTIONS'],
     allowedHeaders: [
       'Content-Type',
